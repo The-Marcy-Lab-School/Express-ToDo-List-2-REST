@@ -38,6 +38,15 @@ const deleteTask = (req, res) => {
     .catch(() => res.status(500).json({ error: '500: Internal Server Error. Resource could not be deleted.' }));
 };
 
+const isCompleted = (req, res) => {
+  const { id } = req.params;
+  const { completed } = req.body;
+
+  Task.isCompleted(id, completed)
+    .then((data) => res.json(data.rows[0]))
+    .catch(() => res.status(500).json({ error: '500: Internal Server Error. Resource could not be deleted.' }));
+};
+
 
 module.exports = {
   createTask,
@@ -45,4 +54,5 @@ module.exports = {
   getTaskById,
   updateTask,
   deleteTask,
+  isCompleted,
 };

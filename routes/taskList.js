@@ -9,6 +9,8 @@ router.get('/tasks/:id', taskController.getTaskById);
 
 router.post('/tasks', taskController.createTask);
 
+router.put('/tasks', taskController.isCompleted);
+
 router.put('/update:/id', taskController.updateTask);
 
 router.delete('/delete/:id', taskController.deleteTask);

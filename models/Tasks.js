@@ -36,14 +36,14 @@ class Task {
     return db.query(queryText, [taskId]);
   }
 
-  static isCompleted(completedStatus) {
+  static isCompleted(taskId, completedStatus) {
     if (completedStatus === 't') {
-      const queryText = 'UPDATE tasks SET (completed) = (false);';
-      return db.query(queryText);
+      const queryText = 'UPDATE tasks SET (completed) = (false) WHERE id = $1;';
+      return db.query(queryText, [taskId]);
     }
 
-    const queryText = 'UPDATE tasks SET (completed) = (true);';
-    return db.query(queryText);
+    const queryText = 'UPDATE tasks SET (completed) = (true) WHERE id = $1;';
+    return db.query(queryText, [taskId]);
   }
 }
 
