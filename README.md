@@ -55,13 +55,13 @@ Schema Design and Building RESTful APIs
 
 ### Routes
 
-| HTTP Method | Route        | Description               |
-| ----------- | ------------ | ------------------------- |
-| GET         | [/todos]()   | List all of all tasks     |
-| GET         | [/todos/1]() | Details about single task |
-| POST        | [/todos]()   | Create a todo list item   |
-| PUT         | [/todos/1]() | Toggle task `is_complete` |
-| DELETE      | [/todos/1]() | Delete a todo list item   |
+| HTTP Method | Route                                                           | Description               |
+| ----------- | --------------------------------------------------------------- | ------------------------- |
+| GET         | [/todos](https://banana-surprise-06355.herokuapp.com/todos)     | List all of all tasks     |
+| GET         | [/todos/1](https://banana-surprise-06355.herokuapp.com/todos/1) | Details about single task |
+| POST        | [/todos]()                                                      | Create a todo list item   |
+| PUT         | [/todos/1](https://banana-surprise-06355.herokuapp.com/todos/1) | Toggle task `is_complete` |
+| DELETE      | [/todos/1](https://banana-surprise-06355.herokuapp.com/todos/1) | Delete a todo list item   |
 
 ### Resources
 
@@ -77,4 +77,17 @@ CREATE TABLE task (
     date_created timestamptz DEFAULT NOW(),
     due_date DATE
 );
+```
+
+#### Creating a New Task
+
+POST [/todos](https://banana-surprise-06355.herokuapp.com/todos). Include JSON with at _minimum_ the **"task"** key in the body of your request. All others are optional!
+
+```json
+{
+  "task": "Do this",
+  "description": "Don't forget to bring this, though!",
+  "dueDate": "April 3, 2022",
+  "isComplete": false
+}
 ```
