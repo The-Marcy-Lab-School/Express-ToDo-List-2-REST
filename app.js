@@ -9,6 +9,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
+app.get('/', (req, res) => {
+    res.json({
+        'GET /users': 'get all users',
+        'POST /users': 'adds user to users',
+        'GET /users/:id': 'gets user by id',
+        'GET /tasks': 'gets all available tasks',
+        'POST /tasks': 'adds task to list',
+        'GET /tasks/:id': 'gets task by task id',
+        'PUT tasks/:id': 'updates task completed status',
+        'DELETE tasks/:id': 'deletes task based on task id',
+    });
+});
+
 app.post('/users', (req, res) => {
     const { first_name, last_name, username } = req.body;
 
