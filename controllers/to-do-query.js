@@ -47,8 +47,7 @@ async function getAllTasks(req, res) {
   }
 }
 
-
-
+pool.query('SELECT * FROM task;').then((result) => console.log(result))
 
 module.exports = {
     greetUser,
