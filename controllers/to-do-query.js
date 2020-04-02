@@ -1,34 +1,50 @@
-const db = require('../db');
+const db = require('../db')
+const pool = db.pool
 
 const greetUser = (req, res) => {
     res.send('Hello User')
 }
 
-const getAllUncompletedTasks = (req, res) => {
-    db.query('SELECT * FROM task WHERE is_complete = false;')
-    .then((data) => res.json(data.rows))
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({ error: '500: Internal Server Error' });
-    });
+async function getAllUncompletedTasks(req, res) {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('SELECT * FROM task WHERE is_complete = false;');
+    const results = { 'results': (result) ? result.rows : null };
+    res.send(results);
+    client.release();
+  }
+  catch (err) {
+    console.error(err);
+    res.send(err);
+  }
 }
 
-const getAllCompletedTasks = (req, res) => {
-    db.query('SELECT * FROM task WHERE is_complete = true;')
-    .then((data) => res.json(data.rows))
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({ error: '500: Internal Server Error' });
-    });
+async function getAllCompletedTasks(req, res) {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('SELECT * FROM task WHERE is_complete = true;');
+    const results = { 'results': (result) ? result.rows : null };
+    res.send(results);
+    client.release();
+  }
+  catch (err) {
+    console.error(err);
+    res.send(err);
+  }
 }
 
-const getAllTasks = (req, res) => {
-    db.query('SELECT * FROM task;')
-    .then((data) => res.json(data.rows))
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({ error: '500: Internal Server Error' });
-    });
+async function getAllTasks(req, res) {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('SELECT * FROM task');
+    const results = { 'results': (result) ? result.rows : null };
+    res.send(results);
+    client.release();
+  }
+  catch (err) {
+    console.error(err);
+    res.send(err);
+  }
 }
 
 

@@ -1,64 +1,87 @@
-const db = require('../db');
+const db = require('../db')
+const pool = db.pool
 
-class ToDoList {
-    
-    static addTask(req, res){
-        const {name, description} = req.body
-        const dateAdded = new Date()
-        const queryText = 'INSERT INTO task (name, description, date_added) VALUES ($1, $2, $3);'
-        db.query(queryText, [name, description, dateAdded])
-        .then((data) => {
-          console.log(data);
-          res.status(201).json({ message: 'New task created.' });
-        })
-        .catch((err) => {
-          console.log(err);
-          res.status(500).json({ error: '500: Internal Server Error. Resource not created.' });
-        });
-        }
-    static deleteTask(req, res){
-        const {id} = req.params
-        const queryText = 'DELETE FROM task WHERE task_id = $1'
-        db.query(queryText, [id])
-        .then((data) => {
-          console.log(data);
-          res.status(201).json({ message: 'Task deleted.' });
-        })
-        .catch((err) => {
-          console.log(err);
-          res.status(500).json({ error: '500: Internal Server Error. Resource not deleted.' });
-        });
-    }
-    static updateTask(req, res){
-        const {id} = req.params
-        const {name, description} = req.body
-        const dateAdded = new Date()
-        const queryText = 'UPDATE task SET (name, description, date_added) = ($2, $3, $4) WHERE task_id = $1;'
-        db.query(queryText, [id, name, description, dateAdded])
-        .then((data) => {
-          console.log(data);
-          res.status(201).json({ message: 'Task updated.' });
-        })
-        .catch((err) => {
-          console.log(err);
-          res.status(500).json({ error: '500: Internal Server Error. Resource not updated.' });
-        });
-    }
-    static completeTask(req, res){
-        const {id} = req.params
-        const dateCompleted = new Date()
-        const queryText = `UPDATE task SET (is_complete, date_completed) = ($2, $3) WHERE task_id = $1;`
-        
-        db.query(queryText, [id, true, dateCompleted])
-        .then((data) => {
-          console.log(data);
-          res.status(201).json({ message: 'Task completed.' });
-        })
-        .catch((err) => {
-          console.log(err);
-          res.status(500).json({ error: '500: Internal Server Error. Resource not completed.' });
-        });
-    }
+async function addTask(req, res) {
+  try {
+    const {name, description} = req.body
+    const dateAdded = new Date()
+    const queryText = 'INSERT INTO task (name, description, date_added) VALUES ($1, $2, $3);'  
+    const client = await pool.connect();
+    const result = await client.query(queryText, [name, description, dateAdded]);
+    const results = { 'results': (result) ? result.rows : null };
+    res.send(results);
+    client.release();
+  }
+  catch (err) {
+    console.error(err);
+    res.send(err);
+  }
 }
 
-module.exports = ToDoList
+async function deleteTask(req, res) {
+  try {
+    const {id} = req.params
+    const queryText = 'DELETE FROM task WHERE task_id = $1'  
+    const client = await pool.connect();
+    const result = await client.query(id, queryText);
+    const results = { 'results': (result) ? result.rows : null };
+    res.send(results);
+    res.status(201).json({ message: 'Task deleted.' });
+    client.release();
+  }
+  catch (err) {
+    console.error(err);
+    res.send(err);
+    res.status(500).json({ error: '500: Internal Server Error. Resource not deleted.' });
+  }
+}
+
+async function updateTask(req, res) {
+  try {
+    const {id} = req.params
+    const {name, description} = req.body
+    const dateAdded = new Date()
+    const queryText = 'UPDATE task SET (name, description, date_added) = ($2, $3, $4) WHERE task_id = $1;'
+    const client = await pool.connect();
+    const result = await client.query(queryText, [id, name, description, dateAdded]);
+    const results = { 'results': (result) ? result.rows : null };
+    res.send(results);
+    res.status(201).json({ message: 'Task deleted.' });
+    client.release();
+  }
+  catch (err) {
+    console.error(err);
+    res.send(err);
+    res.status(500).json({ error: '500: Internal Server Error. Resource not deleted.' });
+  }
+}
+
+async function completeTask(req, res) {
+  try {
+    const {id} = req.params
+    const dateCompleted = new Date()
+    const queryText = `UPDATE task SET (is_complete, date_completed) = ($2, $3) WHERE task_id = $1;`
+    const client = await pool.connect();
+    const result = await client.query(queryText, [id, true, dateCompleted]);
+    const results = { 'results': (result) ? result.rows : null };
+    res.send(results);
+    res.status(201).json({ message: 'Task completed.' });
+    client.release();
+  }
+  catch (err) {
+    console.error(err);
+    res.send(err);
+    res.status(500).json({ error: '500: Internal Server Error. Resource not completed.' });
+  }
+}
+        
+    
+    
+    
+
+module.exports = {
+    addTask,
+    deleteTask,
+    updateTask,
+    completeTask,
+}
