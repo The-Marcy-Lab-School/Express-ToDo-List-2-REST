@@ -32,10 +32,9 @@ const updateTask = (req, res) => {
 
 const deleteTask = (req, res) => {
   const { id } = req.params;
-
   Task.deleteTask(id)
     .then(() => res.status(204).json({ message: 'Friend successfully deleted.' }))
-    .catch(() => res.status(500).json({ error: '500: Internal Server Error. Resource could not be deleted.' }));
+    .catch(() => res.status(500).json({ error: '500: Internal Server Error' }));
 };
 
 const isCompleted = (req, res) => {
@@ -44,7 +43,7 @@ const isCompleted = (req, res) => {
 
   Task.isCompleted(id, completed)
     .then((data) => res.json(data.rows[0]))
-    .catch(() => res.status(500).json({ error: '500: Internal Server Error. Resource could not be deleted.' }));
+    .catch(() => res.status(500).json({ error: '500: Internal Server Error' }));
 };
 
 

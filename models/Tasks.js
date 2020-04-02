@@ -19,30 +19,30 @@ class Task {
   }
 
   static getTaskById(taskId) {
-    const queryText = 'SELECT * FROM tasks WHERE id = $1;';
+    const queryText = 'SELECT * FROM tasks WHERE task_id = $1;';
 
     return db.query(queryText, [taskId]);
   }
 
   static updateTask(taskId, name, dueDate) {
-    const queryText = 'UPDATE tasks SET (name, due_date) = ($2, $3) WHERE id = $1;';
+    const queryText = 'UPDATE tasks SET name = $2, due_date = $3 WHERE task_id = $1;';
 
     return db.query(queryText, [taskId, name, dueDate]);
   }
 
   static deleteTask(taskId) {
-    const queryText = 'DELETE FROM tasks WHERE id = $1;';
+    const queryText = 'DELETE FROM tasks WHERE task_id = $1;';
 
     return db.query(queryText, [taskId]);
   }
 
-  static isCompleted(taskId, completedStatus) {
-    if (completedStatus === 't') {
-      const queryText = 'UPDATE tasks SET (completed) = (false) WHERE id = $1;';
+  static isCompleted(taskId, completed) {
+    if (completed === 't') {
+      const queryText = 'UPDATE tasks SET completed = false WHERE task_id = $1;';
       return db.query(queryText, [taskId]);
     }
 
-    const queryText = 'UPDATE tasks SET (completed) = (true) WHERE id = $1;';
+    const queryText = 'UPDATE tasks SET completed = true WHERE task_id = $1;';
     return db.query(queryText, [taskId]);
   }
 }
