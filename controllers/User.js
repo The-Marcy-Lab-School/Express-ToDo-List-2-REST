@@ -16,7 +16,7 @@ class User {
     }
 
     static getUserById(userId) {
-        return db.query(`SELECT * FROM users WHERE tasks.id = $1;`, [userId]);
+        return db.query(`SELECT * FROM users WHERE users.id = $1;`, [userId]);
     }
 
 }
