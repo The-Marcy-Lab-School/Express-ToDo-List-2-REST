@@ -56,6 +56,6 @@ One of my favorite apps is Instagram. I believe a great example of a one-to-many
    * **Delete a todo item**
    * **Create a Todo list item**
 
-<center>![To-Do List ERD](./To-do-list.png)</center>
+<center>![To-Do List ERD](To-do-list.png)</center>
 
    **Deploy Your Project to Heroku and include a link here:**
