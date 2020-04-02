@@ -56,6 +56,17 @@ One of my favorite apps is Instagram. I believe a great example of a one-to-many
    * **Delete a todo item**
    * **Create a Todo list item**
 
-<center>![To-Do List ERD](./To-do-list.png "To-Do List ERD")</center>
+## PATHS
 
-   **Deploy Your Project to Heroku and include a link here:**
+| http method  |  path          | description              |
+|--------------|----------------|--------------------------|
+|  POST        |/               | Greets the user          |
+|  GET         |/tasks          | Gets uncomplete tasks    |
+|  GET         |/completed-tasks| Gets complete tasks      |
+|  GET         |/list           | Gets all tasks           |
+|  POST        |/add-task       | Adds task                |
+|  DELETE      |/delete-task/:id| Deletes a specific task  |
+|  PUT         |/update-task/:id| Updates a specific task  |
+|  DELETE      |/complete-task/:id| Completes a specific task |
+
+   **Deploy Your Project to Heroku and include a link here:** [Link to API](https://strawberry-crumble-21020.herokuapp.com/)
