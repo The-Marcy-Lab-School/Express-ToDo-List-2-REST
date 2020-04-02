@@ -49,7 +49,7 @@ Schema Design and Building RESTful APIs
    - **Delete a todo item**
    - **Create a Todo list item**
 
-   **Deploy Your Project to Heroku and include a link here:** [App]()
+   **Deploy Your Project to Heroku and include a link here:** [App](https://banana-surprise-06355.herokuapp.com/todos)
 
 ## Express Todo List API
 
@@ -69,7 +69,7 @@ Schema Design and Building RESTful APIs
 
 ```SQL
 CREATE TABLE task (
-	  task_id SERIAL PRIMARY KEY,
+    task_id SERIAL PRIMARY KEY,
     task_name character varying(48)
     NOT NULL CONSTRAINT no_empty_task_name CHECK(task_name != ''),
     task_description text,
