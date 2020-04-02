@@ -1,41 +1,17 @@
-const { Pool } = require('pg');
 const Task = require('../models/Tasks');
 
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true,
-});
-
-const createTask = async(req, res) => {
-  try {
-    const { name, dueDate } = req.body;
-    const client = await pool.connect();
-    const result = await Task.createTask(name, dueDate);
-    const results = { results: (result) ? result.rows : null };
-    // .then(() => Task.getLastCreated())
-    // .then((data) => res.status(201).json(data.rows))
-    // .catch(() => res.status(500).json({ error: '500: Internal Server Error' }));
-    res.send(results);
-    client.release();
-  }
-  catch (err) {
-    res.send(err);
-  }
+const createTask = (req, res) => {
+  const { name, dueDate } = req.body;
+  Task.createTask(name, dueDate)
+    .then(() => Task.getLastCreated())
+    .then((data) => res.status(201).json(data.rows))
+    .catch(() => res.status(500).json({ error: '500: Internal Server Error' }));
 };
 
-const getAllTasks = async(req, res) => {
-  try {
-    const client = await pool.connect();
-    const result = await Task.getAllTasks();
-    const results = { results: (result) ? result.rows : null };
-    // .then((data) => res.json(data.rows))
-    //   .catch(() => res.status(500).json({ error: '500: Internal Server Error' }));
-    res.send(results);
-    client.release();
-  }
-  catch (err) {
-    res.send(err);
-  }
+const getAllTasks = (req, res) => {
+  Task.getAllTasks()
+    .then((data) => res.json(data.rows))
+    .catch(() => res.status(500).json({ error: '500: Internal Server Error' }));
 };
 
 const getTaskById = (req, res) => {
