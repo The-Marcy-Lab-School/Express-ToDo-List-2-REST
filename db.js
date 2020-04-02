@@ -1,11 +1,12 @@
 const { Pool } = require('pg');
 
 const pool = new Pool({
-  user: 'carmensalas',
-  host: 'localhost',
-  database: 'todo',
-  password: null,
-  port: 5432,
+  connectionString: process.env.DATABASE_URL,
+  // user: 'carmensalas',
+  // host: 'localhost',
+  // database: 'todo',
+  // password: null,
+  // port: 5432,
 });
 
 pool.query('SELECT * FROM task;').then((data) => console.log(data));
