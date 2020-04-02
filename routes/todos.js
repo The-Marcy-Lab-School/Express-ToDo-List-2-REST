@@ -11,6 +11,6 @@ router.post('/todos', todosController.addTodo);
 
 router.delete('/todos/:taskId', todosController.removeTodo);
 
-router.put('/todos/:taskId', todosController.editTodo);
+router.put('/todos/:taskId', todosController.toggleIsComplete);
 
 module.exports = router;
