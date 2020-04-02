@@ -12,9 +12,13 @@
 <br>
 
    The four types are:
+   <br>
          1. create => 'POST'
+         <br>
          2. reading => 'GET'
+         <br>
          3. update => 'PUT'
+         <br>
          4. delete => 'DELETE'
 
 
@@ -46,16 +50,22 @@
 <br>
 
    HTTP Method: DELETE
+   <br>
    URL: /ownership/album_id
+   <br>
    Controller/sql : 
+   <br>
    const { album_id } = req.params;
+   <br>
    ```sql DELETE * FROM collection JOIN ownership ON ownership.album_id = collection.album_id  WHERE album_id = $1;```, [album_id]
 
 4. **Choose your favorite web application. What's an example of a one-to-many and many-to-many relationship that might exist within the app?**
 <br>
 
    Web App: Youtube
+   <br>
          1. one to many: one user can have many videos, and one video can only belong to one user
+         <br>
          2. many to many: one user can have many followers, and a user can be following many other users
 
 5. **Build a full CRUD, RESTful API using Express for a Todo List. A TodoList should have many items and belong to a user. Each endpoint should respond with the appropriate JSON response. Our API should support:**
