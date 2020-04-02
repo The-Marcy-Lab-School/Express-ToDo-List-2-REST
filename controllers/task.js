@@ -1,5 +1,9 @@
 const Task = require('../models/Task');
 
+const { Pool } = require('pg');
+
+const pool = new Pool();
+
 const getAll = (req, res) => {
   Task.getAll()
     .then((data) => res.status(200).json(data.rows))
@@ -56,10 +60,24 @@ const markComplete = (req, res) => {
     });
 };
 
+const connect = (req, res) => {
+  try {
+    const client =  pool.connect();
+    const result =  client.query('SELECT * FROM task');
+    const results = { results: (result) ? result.rows : null };
+    res.render('pages/db', results);
+    client.release();
+  } catch (err) {
+    console.error(err);
+    res.send(`Error ${err}`);
+  }
+};
+
 module.exports = {
   getAll,
   createTask,
   updateTask,
   deleteTask,
   markComplete,
+  connect,
 };
