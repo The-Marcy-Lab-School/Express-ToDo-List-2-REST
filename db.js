@@ -8,7 +8,7 @@ const pool = new Pool({
   port: 5432,
 });
 
-// pool.query('SELECT * FROM task;').then((data) => console.log(data));
+pool.query('SELECT * FROM task;').then((data) => console.log(data));
 
 module.exports = {
   query(text, params) {

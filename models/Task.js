@@ -23,12 +23,12 @@ class Task {
   }
 
   static getLastCreated() {
-    const queryText = 'SELECT * FROM users ORDER BY id DESC LIMIT 1;';
+    const queryText = 'SELECT * FROM task ORDER BY id DESC LIMIT 1;';
     return db.query(queryText);
   }
 
   static getTaskById(id) {
-    const queryText = 'SELECT * FROM tasks WHERE id = $1;';
+    const queryText = 'SELECT * FROM task WHERE id = $1;';
     return db.query(queryText, [id]);
   }
 

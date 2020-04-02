@@ -17,10 +17,10 @@ const createTask = (req, res) => {
     }));
 };
 
-
 const getAllTasks = (req, res) => {
   Task.getAllTasks()
-    .then((data) => res.json(data.rows)).catch(() => res.status(500).json({
+    .then((data) => res.json(data.rows))
+    .catch(() => res.status(500).json({
       error: '500: Internal Server Error',
     }));
 };
@@ -68,7 +68,6 @@ const deleteTask = (req, res) => {
       });
     });
 };
-
 
 module.exports = {
   createTask,
