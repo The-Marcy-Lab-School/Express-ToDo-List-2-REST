@@ -6,8 +6,8 @@ const pool = new Pool({
   database: 'tasklist',
   password: null,
   port: 5432,
-  connectionString: process.env.DATABASE_URL,
-  ssl: true
+  connectionString: process.env.DATABASE_URL || 'postgresql://ec2-user:null@localhost:8080/tasklist'
+
 });
 
 

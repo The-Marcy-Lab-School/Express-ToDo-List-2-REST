@@ -42,4 +42,6 @@ app.get('/db', async (req, res) => {
   }
 });
 
+pool.query('SELECT * FROM task ;').then((result)=> console.log(result));
+
 app.listen(port, () => console.log(`Now listening on port ${port}`));
