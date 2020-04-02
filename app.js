@@ -7,7 +7,7 @@ const Task = require('./controllers/Task');
 const { Pool } = require('pg');
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL || 'postgresql://postgres:null@/var/run/postgresql:5432/to_do',
+  connectionString: process.env.DATABASE_URL
 });
 
 app.use(bodyParser.json());
@@ -94,7 +94,7 @@ app.delete('/tasks/:id', (req, res) => {
 app.get('/db', async (req, res) => {
     try {
       const client = await pool.connect();
-      const result = await client.query('SELECT * FROM tass');
+      const result = await client.query('SELECT * FROM tasks');
       const results = { 'results': (result) ? result.rows : null};
       res.render('pages/db', results );
       client.release();
