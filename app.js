@@ -1,14 +1,9 @@
 const express = require("express");
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 const bodyParser = require("body-parser");
 const User = require('./controllers/User');
 const Task = require('./controllers/Task');
-const { Pool } = require('pg');
-
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL
-});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -91,17 +86,5 @@ app.delete('/tasks/:id', (req, res) => {
         });
 });
 
-app.get('/db', async (req, res) => {
-    try {
-      const client = await pool.connect();
-      const result = await client.query('SELECT * FROM tasks');
-      const results = { 'results': (result) ? result.rows : null};
-      res.render('pages/db', results );
-      client.release();
-    } catch (err) {
-      console.error(err);
-      res.send("Error " + err);
-    }
-  });
 
 app.listen(port, () => console.log(`Now listening on port ${port}`));
