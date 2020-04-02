@@ -5,8 +5,8 @@ const pool = new Pool({
   ssl: true,
 });
 
-pool.connect();
-
-module.exports = {
-  query: (text, params) => pool.query(text, params),
-};
+pool.on('connect', (client) => {
+  module.exports = {
+    query: (text, params) => client.query(text, params),
+  };
+});
