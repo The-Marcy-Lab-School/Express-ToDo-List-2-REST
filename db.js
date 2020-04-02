@@ -10,6 +10,8 @@ const pool = new Pool({
   ssl: true
 });
 
+pool.connect();
+
 module.exports = {
   query: (text, params) => pool.query(text, params),
 };
