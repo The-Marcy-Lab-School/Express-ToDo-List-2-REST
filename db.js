@@ -5,8 +5,10 @@ const pool = new Pool({
   ssl: true,
 });
 
-pool.connect();
-
+const connectDb = async () => {
+  const client = await pool.connect();
+  return clienty.query;
+};
 module.exports = {
-  query: (text, params) => pool.query(text, params),
+  query: (text, params) => connectDb()(text, params),
 };
