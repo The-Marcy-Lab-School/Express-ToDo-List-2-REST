@@ -56,6 +56,7 @@ One of my favorite apps is Instagram. I believe a great example of a one-to-many
    * **Delete a todo item**
    * **Create a Todo list item**
 
+<<<<<<< HEAD
 ## PATHS
 
 | http method  |  path          | description              |
