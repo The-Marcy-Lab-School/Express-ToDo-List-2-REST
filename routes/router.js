@@ -2,7 +2,7 @@ const express = require('express')
 const listController = require('../controllers/to-do-query')
 const toDoList = require('../models/to-do-list')
 const router = express.Router()
-const pool = require('../db').pool
+const pool = require('../db')
 
 router.get('/', listController.greetUser)
 router.get('/tasks', listController.getAllUncompletedTasks)

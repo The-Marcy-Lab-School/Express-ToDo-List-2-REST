@@ -1,5 +1,4 @@
-const db = require('../db')
-const pool = db.pool
+const pool = require('../db')
 
 const greetUser = (req, res) => {
     res.send('Hello User')

@@ -1,5 +1,4 @@
-const db = require('../db')
-const pool = db.pool
+const pool = require('../db')
 
 async function addTask(req, res) {
   try {
@@ -75,9 +74,6 @@ async function completeTask(req, res) {
   }
 }
         
-    
-    
-    
 
 module.exports = {
     addTask,
