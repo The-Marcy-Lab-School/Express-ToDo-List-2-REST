@@ -3,10 +3,10 @@
 
 ### Directions
 1. Fork and clone this lab.
-2. Answer the following questions directly in this README. Be sure that your answers are well-formatted. 
-3. For the final question (build a to-do list), create all of your necessary app files in this directory. (I have included GitHub's standard Node.js `.gitignore` template so that you don't end up pushing `node_modules` to GitHub. 
+2. Answer the following questions directly in this README. Be sure that your answers are well-formatted.
+3. For the final question (build a to-do list), create all of your necessary app files in this directory. (I have included GitHub's standard Node.js `.gitignore` template so that you don't end up pushing `node_modules` to GitHub.
 
-## 
+##
 
 0. **What are the four types of HTTP requests that correspond to _creating_, _reading_, _updating_, and _deleting_ resources? Why is it important to use these different types of requests?**
 <br>
@@ -36,7 +36,7 @@
    **Given that the application is RESTful, what HTTP method and request would you expect to have been made to fire that SQL?**
 <br>
 
-- The HTTP request would have been a GET request, and this query is used to get a specific article from the `articles` table. The path would look something like '/articles/:id', and the method would also most likely be called `getArticleById`. 
+- The HTTP request would have been a GET request, and this query is used to get a specific article from the `articles` table. The path would look something like '/articles/:id', and the method would also most likely be called `getArticleById`.
 
 
 3. **You've been hired to do some work for Discogs, an application to help users track a vinyl record collection. A `Collection` has many `Albums`, and an `Album` has many collections via a join table called `Ownership`. You've been asked to build a feature that allows to remove an album from their collection. What HTTP Method/URL/controller action would you use to implement this feature?**
@@ -58,4 +58,4 @@
    * **Delete a todo item**
    * **Create a Todo list item**
 
-   **Deploy Your Project to Heroku and include a link here:**
+   **Deploy Your Project to Heroku and include a link here:** https://pumpkin-cake-93835.herokuapp.com/
