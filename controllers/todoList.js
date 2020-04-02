@@ -1,22 +1,9 @@
 const { Pool } = require('pg');
 const Task = require('../models/Tasks');
+
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: true
-});
-
-router.get('/db', async(req, res) => {
-  try {
-    const client = await pool.connect();
-    const result = await client.query('SELECT * FROM tasks');
-    const results = { 'results': (result) ? result.rows : null };
-    res.send(results);
-    client.release();
-  }
-  catch (err) {
-    console.error(err);
-    res.send(err);
-  }
+  ssl: true,
 });
 
 const createTask = async(req, res) => {
@@ -24,7 +11,7 @@ const createTask = async(req, res) => {
     const { name, dueDate } = req.body;
     const client = await pool.connect();
     const result = await Task.createTask(name, dueDate);
-    const results = { 'success': (result) ? result.rows : null };
+    const results = { results: (result) ? result.rows : null };
     // .then(() => Task.getLastCreated())
     // .then((data) => res.status(201).json(data.rows))
     // .catch(() => res.status(500).json({ error: '500: Internal Server Error' }));
