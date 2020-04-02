@@ -23,10 +23,19 @@ const createTask = async(req, res) => {
   }
 };
 
-const getAllTasks = (req, res) => {
-  Task.getAllTasks()
-    .then((data) => res.json(data.rows))
-    .catch(() => res.status(500).json({ error: '500: Internal Server Error' }));
+const getAllTasks = async(req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await Task.getAllTasks();
+    const results = { results: (result) ? result.rows : null };
+    // .then((data) => res.json(data.rows))
+    //   .catch(() => res.status(500).json({ error: '500: Internal Server Error' }));
+    res.send(results);
+    client.release();
+  }
+  catch (err) {
+    res.send(err);
+  }
 };
 
 const getTaskById = (req, res) => {
