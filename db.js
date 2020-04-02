@@ -5,4 +5,4 @@ const pool = new Pool({
   ssl: true,
 });
 
-module.exports = { pool };
+module.exports = { query: (text, parms) => pool.query(text, params) };
