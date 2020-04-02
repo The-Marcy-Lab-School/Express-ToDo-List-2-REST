@@ -6,10 +6,9 @@ class Task {
     taskDescription,
     dateCreated,
     dueDate,
-    isComplete
+    isComplete,
   ) {
-    const queryText =
-      'INSERT INTO task (task_name, task_description, date_created, due_date, is_complete) VALUES($1,$2,$3,$4,$5)';
+    const queryText = 'INSERT INTO task (task_name, task_description, date_created, due_date, is_complete) VALUES($1,$2,$3,$4,$5)';
     return db.query(queryText, [
       taskName,
       taskDescription,
@@ -33,16 +32,15 @@ class Task {
     return db.query(queryText, [id]);
   }
 
-  static updateTask(id){
-    const queryText = 'UPDATE task SET (task_name, task_description, date_created, due_date, is_complete) WHERE id = $1;'
+  static updateTask(id) {
+    const queryText = 'UPDATE task SET (task_name, task_description, date_created, due_date, is_complete) WHERE id = $1;';
     return db.query(queryText, [id]);
   }
 
-  static deleteTask(id){
-    const queryText = 'DELETE FROM task WHERE id = $1'
+  static deleteTask(id) {
+    const queryText = 'DELETE FROM task WHERE id = $1';
     return db.query(queryText, [id]);
   }
-
 }
 
 module.exports = Task;
