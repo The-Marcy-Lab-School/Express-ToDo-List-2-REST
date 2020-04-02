@@ -29,7 +29,7 @@ router.get('/tasks', taskController.getAllTasks);
 
 router.get('/tasks/:id', taskController.getTaskById);
 
-router.post('/tasks', taskController.createTask);
+router.post('/create', taskController.createTask);
 
 router.put('/isComplete/:id', taskController.isCompleted);
 
