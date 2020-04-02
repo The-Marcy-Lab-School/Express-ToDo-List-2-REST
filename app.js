@@ -39,9 +39,6 @@ app.get('/db', async (req, res) => {
       console.error(err);
       res.send("Error " + err);
     }
-  })
-
-
-pool.connect();
+});
 
 app.listen(port, () => console.log(`Now listening on port ${port}`));
