@@ -11,7 +11,7 @@ router.get('/list', listController.getAllTasks)
 router.post('/add-task', toDoList.addTask)
 router.delete('/delete-task/:id', toDoList.deleteTask)
 router.put('/update-task/:id', toDoList.updateTask)
-router.post('/complete-task/:id', toDoList.completeTask)
+router.put('/complete-task/:id', toDoList.completeTask)
 
 
 

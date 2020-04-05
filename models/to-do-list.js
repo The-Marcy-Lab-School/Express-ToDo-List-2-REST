@@ -54,7 +54,7 @@ async function completeTask(req, res) {
   try {
     const {id} = req.params
     const dateCompleted = new Date()
-    const queryText = `UPDATE tasks SET (is_complete, date_completed) = ($2, $3) WHERE task_id = $1;`
+    const queryText = 'UPDATE tasks SET (is_complete, date_complete) = ($2, $3) WHERE task_id = $1;'
     const client = await pool.connect();
     const result = await client.query(queryText, [id, true, dateCompleted]);
     const results = { 'results': (result) ? result.rows : null };
