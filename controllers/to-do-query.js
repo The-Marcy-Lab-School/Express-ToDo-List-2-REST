@@ -7,7 +7,7 @@ const greetUser = (req, res) => {
 async function getAllUncompletedTasks(req, res) {
   try {
     const {user_id} = req.body
-    const queryText = 'SELECT * FROM task WHERE is_complete = false AND user_id = $1;'
+    const queryText = 'SELECT * FROM tasks WHERE is_complete = false AND user_id = $1;'
     const client = await pool.connect();
     const result = await client.query(queryText, [user_id]);
     const results = { 'results': (result) ? result.rows : null };
@@ -16,14 +16,14 @@ async function getAllUncompletedTasks(req, res) {
   }
   catch (err) {
     console.error(err);
-    res.send(err);
+    res.send('My bad');
   }
 }
 
 async function getAllCompletedTasks(req, res) {
   try {
     const {user_id} = req.body
-    const queryText = 'SELECT * FROM task WHERE is_complete = true AND user_id = $1;'
+    const queryText = 'SELECT * FROM tasks WHERE is_complete = true AND user_id = $1;'
     const client = await pool.connect();
     const result = await client.query(queryText, [user_id]);
     const results = { 'results': (result) ? result.rows : null };
@@ -39,7 +39,7 @@ async function getAllCompletedTasks(req, res) {
 async function getAllTasks(req, res) {
   try {
     const {user_id} = req.body
-    const queryText = 'SELECT * FROM task WHERE user_id = $1;'
+    const queryText = 'SELECT * FROM tasks WHERE user_id = $1;'
     const client = await pool.connect();
     const result = await client.query(queryText, [user_id]);
     const results = { 'results': (result) ? result.rows : null };
