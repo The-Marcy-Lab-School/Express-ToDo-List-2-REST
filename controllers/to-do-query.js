@@ -4,7 +4,7 @@ const greetUser = (req, res) => {
     res.send('To Do List API')
 }
 
-async function getAllUncompletedTasks(req, res) {
+async function getAllIncompletedTasks(req, res) {
   try {
     const {user_id} = req.body
     const queryText = 'SELECT * FROM tasks WHERE is_complete = false AND user_id = $1;'
@@ -58,5 +58,5 @@ module.exports = {
     greetUser,
     getAllTasks,
     getAllCompletedTasks,
-    getAllUncompletedTasks,
+    getAllIncompletedTasks,
 }

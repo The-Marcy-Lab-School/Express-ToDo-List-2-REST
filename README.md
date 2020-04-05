@@ -62,12 +62,67 @@ One of my favorite apps is Instagram. I believe a great example of a one-to-many
 | http method  |  path          | description              |
 |--------------|----------------|--------------------------|
 |  POST        |/               | Greets the user          |
-|  GET         |/tasks          | Gets uncomplete tasks    |
+|  GET         |/incomplete-tasks| Gets incomplete tasks    |
 |  GET         |/completed-tasks| Gets complete tasks      |
-|  GET         |/list           | Gets all tasks           |
+|  GET         |/tasks          | Gets all tasks           |
 |  POST        |/add-task       | Adds task                |
 |  DELETE      |/delete-task/:id| Deletes a specific task  |
 |  PUT         |/update-task/:id| Updates a specific task  |
-|  DELETE      |/complete-task/:id| Completes a specific task |
+|  PUT         |/complete-task/:id| Completes a specific task |
 
-   **Deploy Your Project to Heroku and include a link here:** [Link to API](https://strawberry-crumble-21020.herokuapp.com/)
+ **Deploy Your Project to Heroku and include a link here:** [Link to API](https://strawberry-crumble-21020.herokuapp.com/)
+
+## Documentation 
+
+#### Get all tasks for a specific user
+
+Send a `GET` request to the path `/tasks`.
+
+
+#### Get all incomplete tasks for a specific user
+
+Send a `GET` request to the path `/incomplete-tasks`.
+
+
+#### Get all completed tasks for a specific user
+
+Send a `GET` request to the path `/complete-tasks`.
+
+**For all `GET` requests, include the user's user_id in the body of the request like such:**
+
+```
+{
+   user_id: {USER'S ID HERE}
+}
+```
+
+#### Add a new task to a user's to do list.
+
+Send a `POST` request to the path `/add-task`. In the body of the request include the following data as JSON:
+
+```
+{
+   user_id: {USER'S ID HERE},
+   name: {NAME OF THE NEW TASK HERE},
+   description: {DESCRIPTION OF TASK}
+}
+```
+
+#### Delete a task from a user's to do list
+
+Send a `DELETE` request to the path `/delete-task/{TASK_ID HERE}`
+
+#### Change a task's name or description on a user's to do list
+
+Send a `PUT` request to the path `/update-task/{TASK_ID HERE}`. Include the new name and description in the body of the request.
+
+```
+{
+   name: {NAME OF THE NEW TASK HERE},
+   description: {DESCRIPTION OF TASK}
+}
+```
+
+#### Mark a task as completed
+
+Send a `PUT` request to the path `/complete-task/{TASK_ID HERE}`.
