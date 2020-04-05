@@ -61,8 +61,8 @@ One of my favorite apps is Instagram. I believe a great example of a one-to-many
 
 | http method  |  path          | description              |
 |--------------|----------------|--------------------------|
-|  POST        |/               | Greets the user          |
-|  GET         |/incomplete-tasks| Gets incomplete tasks    |
+|  GET         |/               | Greets the user          |
+|  GET         |/incomplete-tasks| Gets incomplete tasks   |
 |  GET         |/completed-tasks| Gets complete tasks      |
 |  GET         |/tasks          | Gets all tasks           |
 |  POST        |/add-task       | Adds task                |
