@@ -21,7 +21,7 @@ async function deleteTask(req, res) {
     const {id} = req.params
     const queryText = 'DELETE FROM tasks WHERE task_id = $1'  
     const client = await pool.connect();
-    const result = await client.query(id, queryText);
+    const result = await client.query(queryText, [id]);
     const results = { 'results': (result) ? result.rows : null };
     res.status(201).json({ message: 'Task deleted.' });
     client.release();
