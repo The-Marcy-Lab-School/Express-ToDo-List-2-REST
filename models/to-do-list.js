@@ -2,11 +2,10 @@ const pool = require('../db')
 
 async function addTask(req, res) {
   try {
-    const {name, description} = req.body
-    const dateAdded = new Date()
-    const queryText = 'INSERT INTO task (name, description, date_added) VALUES ($1, $2, $3);'  
+    const {user_id, name, description} = req.body
+    const queryText = 'INSERT INTO task (user_id, name, description) VALUES ($1, $2, $3);'  
     const client = await pool.connect();
-    const result = await client.query(queryText, [name, description, dateAdded]);
+    const result = await client.query(queryText, [user_id, name, description]);
     const results = { 'results': (result) ? result.rows : null };
     res.send(results);
     client.release();
@@ -24,13 +23,11 @@ async function deleteTask(req, res) {
     const client = await pool.connect();
     const result = await client.query(id, queryText);
     const results = { 'results': (result) ? result.rows : null };
-    res.send(results);
     res.status(201).json({ message: 'Task deleted.' });
     client.release();
   }
   catch (err) {
     console.error(err);
-    res.send(err);
     res.status(500).json({ error: '500: Internal Server Error. Resource not deleted.' });
   }
 }
@@ -44,14 +41,12 @@ async function updateTask(req, res) {
     const client = await pool.connect();
     const result = await client.query(queryText, [id, name, description, dateAdded]);
     const results = { 'results': (result) ? result.rows : null };
-    res.send(results);
-    res.status(201).json({ message: 'Task deleted.' });
+    res.status(201).json({ message: 'Task updated.' });
     client.release();
   }
   catch (err) {
     console.error(err);
-    res.send(err);
-    res.status(500).json({ error: '500: Internal Server Error. Resource not deleted.' });
+    res.status(500).json({ error: '500: Internal Server Error. Resource not updated.' });
   }
 }
 
@@ -69,7 +64,6 @@ async function completeTask(req, res) {
   }
   catch (err) {
     console.error(err);
-    res.send(err);
     res.status(500).json({ error: '500: Internal Server Error. Resource not completed.' });
   }
 }
