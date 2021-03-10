@@ -47,4 +47,4 @@
    * **Delete a todo item**
    * **Create a Todo list item**
 
-   **Deploy Your Project to Heroku and include a link here:**
+   **Deploy Your Project to Heroku and submit the link:**
