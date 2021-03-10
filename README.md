@@ -1,10 +1,8 @@
-# Unit 7 Problem Set #3
-## Schema Design and Building RESTful APIs
+# Schema Design and Building RESTful APIs: ToDo List
 
 ### Directions
-1. Fork and clone this lab.
-2. Answer the following questions directly in this README. Be sure that your answers are well-formatted. 
-3. For the final question (build a to-do list), create all of your necessary app files in this directory. (I have included GitHub's standard Node.js `.gitignore` template so that you don't end up pushing `node_modules` to GitHub. 
+1. Answer the following questions directly in this README. Be sure that your answers are well-formatted. 
+2. For the final question (build a to-do list), create all of your necessary app files in this directory. (I have included GitHub's standard Node.js `.gitignore` template so that you don't end up pushing `node_modules` to GitHub. 
 
 ## 
 
