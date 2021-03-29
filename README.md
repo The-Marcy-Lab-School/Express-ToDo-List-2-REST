@@ -42,7 +42,8 @@
 
    - An route to see all of a user's tasks.
    - A route to see details about an individual task item.
-   - The ability to update a task (i.e. mark complete)
+   - The ability to update the details of a task 
+   - The ability to mark a task complete
    - Delete a task 
    - Create a task
 
