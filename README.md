@@ -57,7 +57,8 @@ const pool = new Pool({
   ssl: {
     rejectUnauthorized: false
   }
-});```
+});
+```
 See the [Heroku docs](https://devcenter.heroku.com/articles/getting-started-with-nodejs?singlepage=true#provision-a-database) for more info.
 
 **Deploy Your Project to Heroku and submit the link on Canvas. Provide the URL to your github repo as a comment in your submission.**
