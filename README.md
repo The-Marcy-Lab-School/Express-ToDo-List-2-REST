@@ -47,7 +47,18 @@
    - Delete a task 
    - Create a task
    
-You can read [this tutorial](https://www.taniarascia.com/node-express-postgresql-heroku/) on deploying an Express app with Postgres on Heroku. **NOTE:** For your production Heroku environment, your pg connection object should be `{connectionString: process.env.DATABASE_URL, ssl: {rejectUnauthorized: false} }`, according to the [Heroku docs](https://devcenter.heroku.com/articles/getting-started-with-nodejs?singlepage=true#provision-a-database).
+You can read [this tutorial](https://www.taniarascia.com/node-express-postgresql-heroku/) on deploying an Express app with Postgres on Heroku. 
+
+**NOTE:** For your production Heroku environment, your pg connection object should be:
+
+```js
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});```
+See the [Heroku docs](https://devcenter.heroku.com/articles/getting-started-with-nodejs?singlepage=true#provision-a-database) for more info.
 
 **Deploy Your Project to Heroku and submit the link on Canvas. Provide the URL to your github repo as a comment in your submission.**
 
