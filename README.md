@@ -38,21 +38,12 @@
 4. **Choose your favorite web application. What's an example of a one-to-many and many-to-many relationship that might exist within the app?**
 <br>
 
-5. **Update your previous Todo List app! Build a full CRUD, RESTful API that connects to a Postgres Database. In addition to your current routes which render views, you will be building out an API!**
+5. **Build a full CRUD, RESTful API using Express for a Todo List. A TodoList should have many items and belong to a user. Each endpoint should respond with the appropriate JSON response. Our API should support:**
 
-Updating your exisiting project to read from and persist changes to a database:
-   * View a list of tasks
-   * Create a task
-   * Delete a task
-   * Update a task
-   * Mark a task complete
-
-In addition, you need to create additional API routes that will return JSON data. Your API should support:
-   * An index route to see a list of all tasks
-   * A show route to see details about an individual task
-   * Create a task
-   * The ability to update a task 
-   * The ability to mark a task complete
-   * Delete a task
+- An index route to see a list of todos.
+- A show route to see details about an individual todo item.
+- The ability to update a todo (i.e. mark complete)
+- Delete a todo item
+- Create a Todo list item
 
    **Deploy Your Project to Heroku and submit the link on Canvas. Provide the URL to your github repo as a comment in your submission.**
