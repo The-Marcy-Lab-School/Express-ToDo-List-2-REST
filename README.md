@@ -46,7 +46,8 @@
    - The ability to mark a task complete
    - Delete a task 
    - Create a task
-
-   **Deploy Your Project to Heroku and submit the link on Canvas. Provide the URL to your github repo as a comment in your submission.**
    
 You can read [this tutorial](https://www.taniarascia.com/node-express-postgresql-heroku/) on deploying an Express app with Postgres on Heroku. **NOTE:** For your production Heroku environment, your pg connection object should be `{connectionString: process.env.DATABASE_URL, ssl: {rejectUnauthorized: false} }`, according to the [Heroku docs](https://devcenter.heroku.com/articles/getting-started-with-nodejs?singlepage=true#provision-a-database).
+
+**Deploy Your Project to Heroku and submit the link on Canvas. Provide the URL to your github repo as a comment in your submission.**
+
