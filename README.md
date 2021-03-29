@@ -38,12 +38,12 @@
 4. **Choose your favorite web application. What's an example of a one-to-many and many-to-many relationship that might exist within the app?**
 <br>
 
-5. **Build a full CRUD, RESTful API using Express for a Todo List. A TodoList should have many items and belong to a user. Each endpoint should respond with the appropriate JSON response. Our API should support:**
+5. **Build a full CRUD, RESTful API using Express for a Todo List. A user can have many tasks and a task belongs to a user. Each endpoint should respond with the appropriate JSON response. Our API should support:**
 
-- An index route to see a list of todos.
-- A show route to see details about an individual todo item.
-- The ability to update a todo (i.e. mark complete)
-- Delete a todo item
-- Create a Todo list item
+- An index route to see all of a user's tasks.
+- A show route to see details about an individual task item.
+- The ability to update a task (i.e. mark complete)
+- Delete a task 
+- Create a task
 
    **Deploy Your Project to Heroku and submit the link on Canvas. Provide the URL to your github repo as a comment in your submission.**
