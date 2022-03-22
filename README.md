@@ -40,12 +40,12 @@
 
 5. **Build a full CRUD, RESTful API using Express for a Todo List. Each endpoint should respond with the appropriate JSON response. Our API should support:**
 
-   - An route to see all tasks.
+   - A route to see all tasks.
    - A route to see details about an individual task item.
-   - The ability to update the details of a task 
+   - Create a task
+   - The ability to update the description of a task 
    - The ability to mark a task complete
    - Delete a task 
-   - Create a task
    
 You can read [this tutorial](https://www.taniarascia.com/node-express-postgresql-heroku/) on deploying an Express app with Postgres on Heroku. 
 
