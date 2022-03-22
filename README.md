@@ -38,7 +38,7 @@
 4. **Choose your favorite web application. What's an example of a one-to-many and many-to-many relationship that might exist within the app?**
 <br>
 
-5. **Build a full CRUD, RESTful API using Express for a Todo List. Each endpoint should respond with the appropriate JSON response. Our API should support:**
+5. **Build a full CRUD, RESTful API using Express and Postgres for a Todo List. Each endpoint should respond with the appropriate JSON response. Our API should support:**
 
    - A route to see all tasks.
    - A route to see details about an individual task item.
