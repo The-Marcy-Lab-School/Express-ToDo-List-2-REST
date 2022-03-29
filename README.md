@@ -5,12 +5,12 @@ Create all of your necessary app files in this directory. (I have included GitHu
 
 **Build a full CRUD, RESTful API using Express and Postgres for a Todo List. Each endpoint should respond with the appropriate JSON response. Our API should support:**
 
-   - A route to see all tasks.
-   - A route to see details about an individual task item.
-   - Create a task
-   - The ability to update the description of a task 
-   - The ability to mark a task complete
-   - Delete a task 
+   - A route to see all todos.
+   - A route to see details about an individual todo item.
+   - Create a todo
+   - The ability to update the description of a todo 
+   - The ability to mark a todo complete
+   - Delete a todo 
    
 You can read [this tutorial](https://www.taniarascia.com/node-express-postgresql-heroku/) on deploying an Express app with Postgres on Heroku. 
 
