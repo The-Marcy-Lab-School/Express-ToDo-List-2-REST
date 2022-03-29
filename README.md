@@ -1,7 +1,7 @@
 # Schema Design and Building RESTful APIs: ToDo List
 
 ### Directions
-1. Create all of your necessary app files in this directory. (I have included GitHub's standard Node.js `.gitignore` template so that you don't end up pushing `node_modules` to GitHub. 
+Create all of your necessary app files in this directory. (I have included GitHub's standard Node.js `.gitignore` template so that you don't end up pushing `node_modules` to GitHub. 
 
 **Build a full CRUD, RESTful API using Express and Postgres for a Todo List. Each endpoint should respond with the appropriate JSON response. Our API should support:**
 
