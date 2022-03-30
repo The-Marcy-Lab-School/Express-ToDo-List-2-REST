@@ -57,7 +57,7 @@ const pool = new Pool(process.env.NODE_ENV === 'production' ? connectionProducti
 
 ### Configuring Your knexfile
 
-You exports of your `knexfile.ks` should have two properties, one for development and one for production, like so:
+The exports of your `knexfile.ks` should have two properties, one for development and one for production, like so:
 
 ```js
 module.exports = {
