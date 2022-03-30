@@ -1,9 +1,10 @@
 # Schema Design and Building RESTful APIs: ToDo List
+Build a full CRUD, RESTful API using Express and Postgres for a Todo List. 
 
 ### Directions
-Create all of your necessary app files in this directory. (I have included GitHub's standard Node.js `.gitignore` template so that you don't end up pushing `node_modules` to GitHub. 
+Create all of your necessary app files in this directory. (I have included GitHub's standard Node.js `.gitignore` template so that you don't end up pushing `node_modules` to GitHub. You should `npm install express pg knex`. Use express to build your API. Use knex to create your database migrations and seeds. Use pg to connect your express API to your database.Your core app logic must be encapsulated using classes, and your project files should be organized into folders according to their purpose. At a minimum, you should be creating models and controllers
 
-**Build a full CRUD, RESTful API using Express and Postgres for a Todo List. Each endpoint should respond with the appropriate JSON response. Our API should support:**
+**Each endpoint should respond with the appropriate JSON response. Our API should support:**
 
    - A route to see all todos.
    - A route to see details about an individual todo item.
