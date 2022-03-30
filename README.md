@@ -80,8 +80,4 @@ module.exports = {
 
 **Deploy Your Project to Heroku and submit the link on Canvas. Provide the URL to your github repo as a comment in your submission.** When your app is deployed, be sure to test that is works by making API calls to it.
 
-You can read [this tutorial](https://blog.codeselfstudy.com/blog/deploy-node-postgres-heroku/) on deploying an Express app with Postgres on Heroku and running knex migrations and seeds, but it assumes you have the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) installed first. 
-
-See the [Heroku docs](https://devcenter.heroku.com/articles/getting-started-with-nodejs?singlepage=true#provision-a-database) for more info.
-
-
+You can read [this tutorial](https://github.com/The-Marcy-Lab-School/deploy-node-app-to-heroku/blob/main/README.md) on deploying an Express app with Postgres on Heroku and running knex migrations and seeds.
