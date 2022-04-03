@@ -1,0 +1,30 @@
+{
+  "name": "express-todo-list-2-database",
+  "version": "1.0.0",
+  "description": "Build a full CRUD, RESTful API using Express and Postgres for a Todo List.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "db:migrate": "knex migrate:latest",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjanmorales/Express-ToDo-List-2-Database.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jjanmorales/Express-ToDo-List-2-Database/issues"
+  },
+  "homepage": "https://github.com/jjanmorales/Express-ToDo-List-2-Database#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "knex": "^1.0.4",
+    "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
