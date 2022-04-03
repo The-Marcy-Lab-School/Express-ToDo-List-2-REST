@@ -1,7 +1,3 @@
-const knex = require('knex')
-const knexFile = require('../knexfile')
-const env = process.env.DB_ENV || 'development'
-const db = knex(knexFile[env])
 const { Pool } = require('pg');
 
 
@@ -20,6 +16,5 @@ const connectionDevelopment = {
   const pool = new Pool(process.env.NODE_ENV === 'production' ? connectionProduction : connectionDevelopment)
 
   module.exports = {
-    pool,
-    db
+    pool
   }

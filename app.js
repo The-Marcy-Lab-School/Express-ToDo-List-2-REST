@@ -1,13 +1,12 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-// const db = require('./database/db')
 const { pool } = require("./database/db.js");
 
 const PORT = process.env.port || 8080;
 app.use(express.json());
 app.use(cors());
-//pool.query("INSERT INTO users (username) values($1)", [data.username])
+
 
 app.get("/todos", async (req, res) => {
   const todos = await pool.query("SELECT * FROM todos");
@@ -47,9 +46,26 @@ app.put('/todos/:id', async (req, res) => {
       ]);
     res.status(201).send(todo)
 })
-// app.put('/todos/:id/complete', callback)
-// app.delete('/todos/:id', callback)
+
+
+app.put('/todos/:id/complete', async (req, res) => {
+    const id = req.params.id;
+    const { completed } = req.body;
+    let todo = await pool.query("SELECT * FROM todos WHERE id=$1", [id]);
+    if(todo.length === 0){
+        res.status(404).send("todo does not exist!")
+    }
+    todo = await pool.query("UPDATE todos SET completed=$1 WHERE id=$2", [
+        true, id
+      ]);
+    res.status(201).send(todo)
+})
+
+
+app.delete('/todos/:id', async (req, res) => {
+    const id = req.params.id;
+    const todos = await pool.query("DELETE FROM todos WHERE id=$1", [id]);
+    res.status(204).send("Successfully deleted todo!")
+})
 
 app.listen(PORT);
-
-// install dependencies in the new forked repo and copy/paste my current progress
