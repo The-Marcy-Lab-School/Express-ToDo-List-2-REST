@@ -2,10 +2,14 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const { pool } = require("./database/db.js");
+// const router = require("routes/toDosRoutes.js");
 
 const PORT = process.env.port || 8080;
+
+
 app.use(express.json());
 app.use(cors());
+
 
 
 app.get("/todos", async (req, res) => {
