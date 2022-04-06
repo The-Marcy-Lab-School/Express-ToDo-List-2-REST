@@ -4,8 +4,7 @@ const { Pool } = require('pg');
 const connectionDevelopment = {
     database: 'express_todo_list',
     user: 'postgres',
-    password: '',
-    host: 'localhost'
+    password: ''
   }
   
   const connectionProduction = {

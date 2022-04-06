@@ -4,7 +4,8 @@
   "description": "Build a full CRUD, RESTful API using Express and Postgres for a Todo List.",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
     "db:migrate": "knex migrate:latest",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -9,7 +9,7 @@ class ToDoModel {
     return pool.query("SELECT * FROM todos WHERE id=$1", [id]);
   }
 
-  static async createToDo(description) {
+  static createToDo(description) {
     return pool.query(
       "INSERT INTO todos (description, completed) values($1, $2) returning *",
       [description, false]
@@ -30,7 +30,7 @@ class ToDoModel {
     ]);
   }
 
-    static async deleteToDo(id) {
+    static deleteToDo(id) {
       return pool.query("DELETE FROM todos WHERE id=$1 returning *", [id]);
       ;
     }
