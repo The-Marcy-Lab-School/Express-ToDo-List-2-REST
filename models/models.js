@@ -17,7 +17,7 @@ class ToDoModel {
   }
 
   static updateDescription(id, description) {
-    return pool.query("UPDATE todos SET description=$1 WHERE id=$2", [
+    return pool.query("UPDATE todos SET description=$1 WHERE id=$2 returning *", [
       description,
       id,
     ]);

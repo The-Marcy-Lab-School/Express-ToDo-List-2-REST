@@ -2,12 +2,12 @@ const ToDoModel = require('../models/models')
 
 class ToDoController {
   
-    static async getToDos(res){
+    static async getToDos(req, res){
       try{
         const toDos = await ToDoModel.getToDos()
-        res.status(200).send(toDos)
+        return res.status(200).send(toDos.rows)
       }catch(error){
-        res.status(500).json({
+        return res.status(500).json({
           message: error.message
         })
       }
@@ -17,9 +17,9 @@ class ToDoController {
       try {
         const id = req.params.id;
         const toDo = await ToDoModel.getToDosById(id);
-        res.status(200).send(toDo.rows)
+        return res.status(200).send(toDo.rows)
       } catch (error) {
-        res.status(500).json({
+        return res.status(500).json({
           message: error.message
         })
       }
@@ -29,9 +29,9 @@ class ToDoController {
       try {
         const { description } = req.body;
         const updatedToDos = await ToDoModel.createToDo(description);
-        res.status(201).send(updatedToDos)
+        return res.status(201).send(updatedToDos.rows)
       } catch (error) {
-        res.status(500).json({
+        return res.status(500).json({
           message: error.message
         })
       }
@@ -43,9 +43,9 @@ class ToDoController {
         const id = req.params.id;
         const { description } = req.body;
         const updatedToDos = await ToDoModel.updateDescription(id, description)
-        res.status(201).send(updatedToDos)
+        return res.status(201).send(updatedToDos.rows)
       } catch (error) {
-        res.status(500).json({
+        return res.status(500).json({
           message: error.message
         })
       }
@@ -56,9 +56,9 @@ class ToDoController {
       try {
         const id = req.params.id;
         const todo = await ToDoModel.markToDoComplete(id)
-        res.status(201).send(todo.rows[0]);
+        return res.status(201).send(todo.rows);
       } catch (error) {
-        res.status(500).json({
+        return res.status(500).json({
           message: error.message
         })
       }
@@ -69,9 +69,9 @@ class ToDoController {
       try {
         const id = req.params.id;
         const deleted = await ToDoModel.deleteToDo(id)
-        res.status(200).send(deleted)
+        return res.status(200).send(deleted.rows)
       } catch (error) {
-        res.status(500).json({
+        return res.status(500).json({
           message: error.message
         })
       }
