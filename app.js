@@ -1,14 +1,12 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const toDosRouter = require("./routes/toDosRoutes.js");
+const router = require("./routes/toDosRoutes.js");
 
 const PORT = process.env.PORT || 8080;
 
-
 app.use(express.json());
 app.use(cors());
-app.use(toDosRouter);
-
+app.use("/todos", router);
 
 app.listen(PORT);

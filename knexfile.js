@@ -13,22 +13,6 @@ module.exports = {
     },
   },
 
-  staging: {
-    client: "postgresql",
-    connection: {
-      database: "express_todo_list",
-      user: "postgres",
-      password: "",
-    },
-    pool: {
-      min: 2,
-      max: 10,
-    },
-    migrations: {
-      tableName: "knex_migrations",
-    },
-  },
-
   production: {
     client: "postgresql",
     connection: {
