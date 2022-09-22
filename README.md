@@ -40,7 +40,7 @@ If your application is running on Heroku, there will be a variable called `proce
 const { Pool } = require('pg')
 
 const connectionDevelopment = {
-  database: 'yourDataBaseName',  // Replace this with your DB name
+  database: 'todo',  // Or replace this with your database name
   user: 'postgres',              // If you have a different postgres user, replace here
   password: '',                  // If you have a postgres password, write it here
   host: 'localhost',
@@ -57,14 +57,14 @@ const pool = new Pool(process.env.NODE_ENV === 'production' ? connectionProducti
 
 ### Configuring Your knexfile
 
-The exports of your `knexfile.ks` should have two properties, one for development and one for production, like so:
+The exports of your `knexfile.js` should have two properties, one for development and one for production, like so:
 
 ```js
 module.exports = {
   development: {
     client: 'pg',
     connection: {
-      database: 'todo',
+      database: 'todo',       // Or replace this with your database name
       user:     'postgres',
       password: ''
     }
